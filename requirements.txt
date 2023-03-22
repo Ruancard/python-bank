@@ -1,0 +1,2 @@
+Python==3.11
+psycopg2==2.9.5
