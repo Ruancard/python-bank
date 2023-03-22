@@ -25,13 +25,17 @@ try:
                accvalue = ''
                for x in range(0,12):
                     accvalue+= f'{random.randint(0,9)}'
+               select_script = 'SELECT * FROM accounts where acc = %s'
+               listx = (f'{accvalue}',)
+               cur.execute(select_script, listx)
+               record = cur.fetchall()
+               try:
+                    record = record[2]
 
-               cur.execute('SELECT acc FROM accounts')
-               for record in cur.fetchall():
-                    if record[0] != accvalue:
-                         return accvalue
-                    else:
-                         acc_generator()
+               except IndexError:
+                    return accvalue
+               else:
+                    acc_generator()   
 
           def office_selector():
                x = random.randint(1,3)
@@ -118,7 +122,9 @@ try:
                     docvalue = input('type your document: ')
                     pwdvalue = input('type your password: ')
                     accvalue = acc_generator()
+                    print(accvalue)
                     officevalue = office_selector()
+                    print(officevalue)
                     creditvalue = 1000
                     balancevalue = 0
 
