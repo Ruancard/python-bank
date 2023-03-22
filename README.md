@@ -2,7 +2,8 @@
 
 ## Status: working
 
-## libraries
+## languages and libraries
 
+* postgresql
 * psycopg2
 * random
