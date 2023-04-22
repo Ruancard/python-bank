@@ -1,6 +1,6 @@
-create database banco;
+create database bank;
 
-\c banco;
+\c bank;
 
 create table accounts(
 	doc varchar(11) not null,
